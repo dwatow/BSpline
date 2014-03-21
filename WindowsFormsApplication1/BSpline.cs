@@ -22,8 +22,8 @@ namespace Nurbs
                 if (L_DOWN > 0 && L_UP > 0)
                     L = L_UP / L_DOWN * _N(i, k - 1, U);
 
-                double R_UP = t[i + k + 1] - U;
-                double R_DOWN = t[i + k + 1] - t[i + 1];
+                double R_UP = t[i + 1 + k] - U;
+                double R_DOWN = t[i + 1 + k] - t[i + 1];
 
                 double R = 0.0;
                 if (R_DOWN > 0 && R_UP > 0)
@@ -82,12 +82,13 @@ namespace Nurbs
 
                 Ans.X += (int)((double)it.X * thisN);
                 Ans.Y += (int)((double)it.Y * thisN);
+                count++;
 	        }
 	        return Ans;
         }
     public double Umax() { return t.GetMax(); }
     public double Umin() { return t.GetMin(); }
-        //Point begin() { return *ctrlPt.begin(); }
-        //Point end() { return *ctrlPt.rbegin(); }
+        Point begin() { return ctrlPt.First(); }
+        Point end() { return ctrlPt.Last(); }
     }
 }

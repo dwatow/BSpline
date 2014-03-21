@@ -65,7 +65,7 @@ namespace Nurbs
             void SetTotalCtrlPoint(int totalPt)
             {
                 m_totalCtrlPt = totalPt;  // math define: ctrl point  = n + 1
-                creatVector();            //輸入ctrl pint 時檢查是否可以創造 knot vector
+                creatVector();            // 輸入ctrl pint 時檢查是否可以創造 knot vector
             }
 
         private
