@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
 
             Graphics graph = CreateGraphics();
             
-            Pen pen = new Pen(Color.Blue, 2);
+            Pen pen = new Pen(Color.Blue, 1);
 
             if (m_sample.Count() == degree)
             {
@@ -83,16 +83,15 @@ namespace WindowsFormsApplication1
             //graphBuf.Render(this.CreateGraphics());
         }
 
-        private void Form1_Paint(object sender, PaintEventArgs e)
-        {
-
-
-
-        }
-
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             cursor.Text = String.Format("{0}, {1}", Cursor.Position.X, Cursor.Position.Y);
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Graphics graph = this.CreateGraphics();
+            graph.Clear(this.BackColor);
         }
     }
 }
