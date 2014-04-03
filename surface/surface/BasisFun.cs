@@ -244,7 +244,11 @@ namespace Nurbs
             m_xWidth  = w;
             m_yHeight = h;
         }
-        
+
+        private void createSurface()
+        {
+            Ans
+        }
 
         #region 數學定義
         public Point Ans(double u)
