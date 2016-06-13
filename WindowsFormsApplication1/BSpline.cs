@@ -9,7 +9,7 @@ namespace Nurbs
 {
     class BSpline
     {
-    public
+        public
         //N(iKnots, degree, U)
         double _N(int i, int k, double U) //blending function 基底函數
         {
@@ -39,36 +39,36 @@ namespace Nurbs
                     return 0.0000;
             }
         }
-    private List<Point> ctrlPt = new List<Point>();
-    private void setTotalCtrlPoint()
+        private List<Point> ctrlPt = new List<Point>();
+        private void setTotalCtrlPoint()
         {
             t.SetTotalCtrlPoint(ctrlPt.Count());
         }
-    public void AddCtrlPoint(Point pt)
+        public void AddCtrlPoint(Point pt)
         {
             ctrlPt.Add(pt);
             setTotalCtrlPoint();
         }
-    public void AddCtrlPoint(int x, int y)
+        public void AddCtrlPoint(int x, int y)
         {
             Point pt = new Point(x, y);
             ctrlPt.Add(pt);
             setTotalCtrlPoint();
         }
-    public void AddCtrlPoint(List<Point> vCPt)
+        public void AddCtrlPoint(List<Point> vCPt)
         {
             ctrlPt = vCPt;
             setTotalCtrlPoint();
         }
 
-    private
+        private
         KnotVector t = new KnotVector();         //knot vector
-    public
+        public
         bool SetDegree(int degree)
         {
             return t.SetDegree(degree);
         }
-    public Point Answer(double U)
+        public Point Answer(double U)
         {
             Point Ans = new Point();
             double thisN;
@@ -86,8 +86,8 @@ namespace Nurbs
             }
             return Ans;
         }
-    public double Umax() { return t.GetMax(); }
-    public double Umin() { return t.GetMin(); }
+        public double Umax() { return t.GetMax(); }
+        public double Umin() { return t.GetMin(); }
         Point begin() { return ctrlPt.First(); }
         Point end() { return ctrlPt.Last(); }
     }
