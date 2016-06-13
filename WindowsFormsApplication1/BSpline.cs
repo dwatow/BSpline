@@ -10,8 +10,8 @@ namespace Nurbs
     class BSpline
     {
     public
-	    //N(iKnots, degree, U)
-	    double _N(int i, int k, double U) //blending function 基底函數
+        //N(iKnots, degree, U)
+        double _N(int i, int k, double U) //blending function 基底函數
         {
             if (k != 0)
             {
@@ -39,7 +39,7 @@ namespace Nurbs
                     return 0.0000;
             }
         }
-	private List<Point> ctrlPt = new List<Point>();
+    private List<Point> ctrlPt = new List<Point>();
     private void setTotalCtrlPoint()
         {
             t.SetTotalCtrlPoint(ctrlPt.Count());
@@ -51,9 +51,9 @@ namespace Nurbs
         }
     public void AddCtrlPoint(int x, int y)
         {
-	        Point pt = new Point(x, y);
-	        ctrlPt.Add(pt);
-	        setTotalCtrlPoint();
+            Point pt = new Point(x, y);
+            ctrlPt.Add(pt);
+            setTotalCtrlPoint();
         }
     public void AddCtrlPoint(List<Point> vCPt)
         {
@@ -62,29 +62,29 @@ namespace Nurbs
         }
 
     private
-	    KnotVector t = new KnotVector();         //knot vector
+        KnotVector t = new KnotVector();         //knot vector
     public
-	    bool SetDegree(int degree)
+        bool SetDegree(int degree)
         {
             return t.SetDegree(degree);
         }
     public Point Answer(double U)
         {
-	        Point Ans = new Point();
-	        double thisN;
+            Point Ans = new Point();
+            double thisN;
 
             int count = 0;
             foreach (Point it in ctrlPt)
 
-	        //for (List<Point>::iterator it = ctrlPt.begin(); it != ctrlPt.end(); ++it)
-	        {
-                thisN = _N(count, t.GetDegree(), U);		//thisN = N(indexPoint, U);
+            //for (List<Point>::iterator it = ctrlPt.begin(); it != ctrlPt.end(); ++it)
+            {
+                thisN = _N(count, t.GetDegree(), U);        //thisN = N(indexPoint, U);
 
                 Ans.X += (int)((double)it.X * thisN);
                 Ans.Y += (int)((double)it.Y * thisN);
                 count++;
-	        }
-	        return Ans;
+            }
+            return Ans;
         }
     public double Umax() { return t.GetMax(); }
     public double Umin() { return t.GetMin(); }
